@@ -1,4 +1,4 @@
- package DAO;
+ package br.com.SorrisoMaterno.sorrisoapi.model;
 
 import java.util.ArrayList;
 import java.util.List;
