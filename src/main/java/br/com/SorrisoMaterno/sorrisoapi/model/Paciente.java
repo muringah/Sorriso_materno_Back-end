@@ -8,13 +8,28 @@ public class Paciente {
     private int gestacoesAnteriores;
     private String email;
     private String dataNascimento;
-    public Paciente(String nome, String telefone, String complicacoes, int gestacoesAnteriores, String email,String dataNascimento) {
+    private String rg;
+    private String cpf;
+    
+    
+    
+    
+    
+    
+    public Paciente(String nome, String telefone, String complicacoes, int gestacoesAnteriores, String email,
+            String dataNascimento, String rg, String cpf) {
         this.nome = nome;
         this.telefone = telefone;
         this.complicacoes = complicacoes;
         this.gestacoesAnteriores = gestacoesAnteriores;
         this.email = email;
         this.dataNascimento = dataNascimento;
+        this.rg = rg;
+        this.cpf = cpf;
+    }
+    public Paciente() {
+
+
     }
     public String getNome() {
         return nome;
@@ -52,9 +67,19 @@ public class Paciente {
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+    public String getRg() {
+        return rg;
+    }
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+    public String getCpf() {
+        return cpf;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-    
-
-    
     
 }
+   
