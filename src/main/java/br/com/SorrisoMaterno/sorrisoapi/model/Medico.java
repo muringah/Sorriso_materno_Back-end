@@ -5,7 +5,8 @@ public class Medico {
         private String nome;
         private String crm;
         private String telefone;
-        public Medico(String nome, String crm, String telefone) {
+       
+        public Medico() {
             this.nome = nome;
             this.crm = crm;
             this.telefone = telefone;

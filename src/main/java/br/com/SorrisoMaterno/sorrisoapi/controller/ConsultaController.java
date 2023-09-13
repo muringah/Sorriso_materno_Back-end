@@ -1,5 +1,7 @@
 package br.com.SorrisoMaterno.sorrisoapi.controller;
 
+import javax.xml.crypto.Data;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +20,7 @@ public class ConsultaController {
         System.out.println("Nova consulta realizada com sucesso no dia:" + novaConsulta.getData());
         if(novaConsulta.getData() != null){
             return true;
+        
         }
             return false;
     }
