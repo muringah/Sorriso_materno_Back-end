@@ -9,7 +9,7 @@ public class DataBaseMedico {
     medico = new ArrayList<>();
     }
     public void init(){
-    medico.add(new Medico("Kayky"));
+    medico.add(new Medico("Kayky", "123456", "1196321-8910"));
     }
     public void addDado(Medico novo){
     medico.add(novo);

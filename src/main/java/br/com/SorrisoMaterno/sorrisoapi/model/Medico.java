@@ -5,11 +5,12 @@ public class Medico {
         private String nome;
         private String crm;
         private String telefone;
-       
-        public Medico() {
+        public Medico(String nome, String crm, String telefone) {
             this.nome = nome;
             this.crm = crm;
             this.telefone = telefone;
+        }
+        public Medico() {
         }
         public String getNome() {
             return nome;
@@ -29,7 +30,8 @@ public class Medico {
         public void setTelefone(String telefone) {
             this.telefone = telefone;
         }
-
+       
+       
         
     
 }
