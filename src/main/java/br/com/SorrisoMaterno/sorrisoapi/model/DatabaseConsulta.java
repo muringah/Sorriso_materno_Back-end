@@ -2,10 +2,10 @@ package br.com.SorrisoMaterno.sorrisoapi.model;
 
 import java.util.ArrayList;
 
-public class Database {
+public class DatabaseConsulta {
     private ArrayList<Consulta> consultas;
 
-    public Database() {
+    public DatabaseConsulta() {
     consultas = new ArrayList<>();
     }
     public void init(){
