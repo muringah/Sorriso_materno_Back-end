@@ -16,7 +16,10 @@ public ArrayList<Medico> listarMedico() {
     medico1.setCrm("123456");
     medico1.setTelefone("1196321-8910");
 
-    return listarMedico();
+
+    ArrayList<Medico> Lista = new ArrayList<>();
+    Lista.add(medico1);
+    return Lista;
 
 
          }
