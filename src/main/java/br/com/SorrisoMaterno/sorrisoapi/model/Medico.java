@@ -10,6 +10,8 @@ public class Medico {
             this.crm = crm;
             this.telefone = telefone;
         }
+        public Medico() {
+        }
         public String getNome() {
             return nome;
         }
@@ -28,7 +30,8 @@ public class Medico {
         public void setTelefone(String telefone) {
             this.telefone = telefone;
         }
-
+       
+       
         
     
 }

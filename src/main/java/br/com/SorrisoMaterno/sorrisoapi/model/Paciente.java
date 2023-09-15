@@ -25,8 +25,10 @@ public class Paciente {
     }
 
 
+
     public Paciente() {
     }
+
 
 
     public String getNome() {
@@ -89,9 +91,11 @@ public class Paciente {
     }
 
 
+
     public String getRg() {
         return rg;
     }
+
 
 
     public void setRg(String rg) {
@@ -99,15 +103,18 @@ public class Paciente {
     }
 
 
+
     public String getCpf() {
         return cpf;
     }
 
 
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    
-    
+
+
+
+
 }

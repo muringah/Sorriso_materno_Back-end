@@ -1,5 +1,6 @@
 package br.com.SorrisoMaterno.sorrisoapi.controller;
 
+
 import java.util.ArrayList;
 
 import org.springframework.http.ResponseEntity;
@@ -45,9 +46,7 @@ public class PacienteController {
        
     }
 
-
-    
-
+   
     @PostMapping("/api/paciente/cadastro")
     public boolean criaPaciente(@RequestBody Paciente novoPaciente){
         // Lógica de quando o dado chega aqui
@@ -57,4 +56,4 @@ public class PacienteController {
         }
         return false;
     } 
-}
+  }
