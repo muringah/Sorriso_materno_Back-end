@@ -25,12 +25,15 @@ public class Paciente {
     }
 
 
+<<<<<<< HEAD
 
     public Paciente() {
     }
 
 
 
+=======
+>>>>>>> bb4b3f882b03736655ddcff8709d4bec647e8a12
     public String getNome() {
         return nome;
     }
@@ -90,6 +93,32 @@ public class Paciente {
         this.dataNascimento = dataNascimento;
     }
 
+<<<<<<< HEAD
+=======
+
+    public String getRg() {
+        return rg;
+    }
+
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+
+    public String getCpf() {
+        return cpf;
+    }
+
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
+   
+
+    
+>>>>>>> bb4b3f882b03736655ddcff8709d4bec647e8a12
 
 
     public String getRg() {
