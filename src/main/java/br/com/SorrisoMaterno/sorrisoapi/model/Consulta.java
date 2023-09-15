@@ -10,11 +10,14 @@ public class Consulta {
         this.horario = horario;
     }
 
+    public Consulta() {
+    }
+
     public String getData() {
         return data;
     }
 
-    public void setDataHora(String data) {
+    public void setData(String data) {
         this.data = data;
     }
 

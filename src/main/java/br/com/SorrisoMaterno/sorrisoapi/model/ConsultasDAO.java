@@ -2,7 +2,7 @@
  package br.com.SorrisoMaterno.sorrisoapi.model;
 
 public class ConsultasDAO {
-        private Database db; 
+        private DatabaseConsulta db; 
         
     private static ConsultasDAO instance; 
     
@@ -18,9 +18,9 @@ public class ConsultasDAO {
     }
    
     
-    private Database getConnection(){
+    private DatabaseConsulta getConnection(){
     if(this.db == null){
-    Database db = new Database();
+    DatabaseConsulta db = new DatabaseConsulta();
     db.init();
     this.db = db;
     }
