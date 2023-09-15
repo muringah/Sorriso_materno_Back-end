@@ -88,7 +88,6 @@ public class Paciente {
         this.dataNascimento = dataNascimento;
     }
 
-
     public String getRg() {
         return rg;
     }
@@ -107,7 +106,4 @@ public class Paciente {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    
-    
 }
