@@ -1,21 +1,23 @@
-
-package br.com.SorrisoMaterno.sorrisoapi;
+package br.com.SorrisoMaterno;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.com.SorrisoMaterno.sorrisoapi.model.Consulta;
-import br.com.SorrisoMaterno.sorrisoapi.model.Medico;
-import br.com.SorrisoMaterno.sorrisoapi.repositories.ConsultaRepository;
-import br.com.SorrisoMaterno.sorrisoapi.repositories.MedicoRepository;
+import br.com.SorrisoMaterno.model.Consulta;
+import br.com.SorrisoMaterno.model.Medico;
+import br.com.SorrisoMaterno.model.Paciente;
+import br.com.SorrisoMaterno.repositories.ConsultaRepository;
+import br.com.SorrisoMaterno.repositories.MedicoRepository;
+import br.com.SorrisoMaterno.repositories.PacienteRepository;
 
 @Component
 public class DataLoader implements ApplicationRunner {
 
     private ConsultaRepository consultaRepository;
     private MedicoRepository medicoRepository;
+    private PacienteRepository pacienteRepository;
 
     
 
@@ -27,6 +29,7 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         consultaRepository.save(new Consulta("10/12/2023", "12:00"));
         medicoRepository.save(new Medico("Médico 1", "1234", "011 xxxx-xxxx"));
+        pacienteRepository.save(new Paciente("Jhennifer", "11 93213123", "Não", 1, "jhejhedograu@gmail.com", "04/11/2000", "13245654321", "321312324525"));
     }
 
 
@@ -36,4 +39,18 @@ public class DataLoader implements ApplicationRunner {
     }
 
     
+    
+   
+
+    @Autowired
+    public DataLoader (PacienteRepository pacienteRepository){
+        this.pacienteRepository = pacienteRepository;
     }
+
+  
+        
+    
+
+}
+    
+

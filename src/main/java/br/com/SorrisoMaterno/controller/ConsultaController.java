@@ -1,5 +1,5 @@
 
-package br.com.SorrisoMaterno.sorrisoapi.controller;
+package br.com.SorrisoMaterno.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.SorrisoMaterno.sorrisoapi.model.Consulta;
-import br.com.SorrisoMaterno.sorrisoapi.model.ConsultasDAO;
+import br.com.SorrisoMaterno.model.Consulta;
+import br.com.SorrisoMaterno.model.ConsultasDAO;
 
 @RestController
 public class ConsultaController {

@@ -1,14 +1,10 @@
 
-
-
-package br.com.SorrisoMaterno.sorrisoapi.model;
+package br.com.SorrisoMaterno.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
-import br.com.SorrisoMaterno.sorrisoapi.repositories.ConsultaRepository;
+import br.com.SorrisoMaterno.repositories.ConsultaRepository;
 
 /*
  * @Service permite que o Spring escaneie a classe ConsultasDAO
@@ -57,4 +53,6 @@ public class ConsultasDAO {
         return consultaRepo.findByData(data);
     }
 }
+
+
 

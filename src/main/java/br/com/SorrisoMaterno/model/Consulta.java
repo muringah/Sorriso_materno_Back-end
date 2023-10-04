@@ -1,6 +1,6 @@
 
+package br.com.SorrisoMaterno.model;
 
-package br.com.SorrisoMaterno.sorrisoapi.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,4 +39,3 @@ public class Consulta {
         this.horario = horario;
     }
 }
-

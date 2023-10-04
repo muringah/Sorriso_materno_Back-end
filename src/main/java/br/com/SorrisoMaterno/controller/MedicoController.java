@@ -1,8 +1,9 @@
 
-package br.com.SorrisoMaterno.sorrisoapi.controller;
+package br.com.SorrisoMaterno.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,21 +12,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.SorrisoMaterno.sorrisoapi.model.CadastroMedicoDAO;
-import br.com.SorrisoMaterno.sorrisoapi.model.Medico;
+import br.com.SorrisoMaterno.model.CadastroMedicoDAO;
+import br.com.SorrisoMaterno.model.Medico;
 
 @RestController
 public class MedicoController {
 
-    @Autowired
+
+     @Autowired
+    CadastroMedicoDAO medicoDAO;   
     CadastroMedicoDAO cadastroMedicoDao;
 
-    @PostMapping("/api/medico/cadastro")
+     @PostMapping("/api/medico/cadastro")
     public boolean criaCadastroMedico(@RequestBody Medico novoMedico){
         System.out.println("Novo medico cadastrado" + novoMedico.getCrm());
         {
             if (novoMedico.getCrm() != null){
-                cadastroMedicoDao.create(novoMedico);
+                medicoDAO.create(novoMedico);
                 return true;
             }
 
@@ -59,8 +62,21 @@ public class MedicoController {
             );
         return null;
     }
+
+
+  
+    
+
+    @DeleteMapping("/api/medico/remover/{crm}")
+    public String endPoint5(@PathVariable("crm") Long crm) {
+        if (crm == 123456)
+            return "Remoção de informação com crm: " + crm + " realizada";
+        else {
+            return "O crm: " + crm + "não foi encontrado";
+ 
+   
 }
-    
-    
 
+    }
 
+}
