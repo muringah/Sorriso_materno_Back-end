@@ -1,14 +1,26 @@
 package br.com.SorrisoMaterno.sorrisoapi.model;
 
-public class Medico {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+@Entity
 
+public class Medico {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private long id;
         private String nome;
         private String crm;
         private String telefone;
+    
+       
         public Medico(String nome, String crm, String telefone) {
             this.nome = nome;
             this.crm = crm;
             this.telefone = telefone;
+        }
+        public Medico() {
         }
         public String getNome() {
             return nome;
@@ -28,7 +40,8 @@ public class Medico {
         public void setTelefone(String telefone) {
             this.telefone = telefone;
         }
-
+       
+       
         
     
 }

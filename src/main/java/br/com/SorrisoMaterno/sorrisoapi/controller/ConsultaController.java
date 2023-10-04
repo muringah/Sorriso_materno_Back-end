@@ -1,41 +1,40 @@
 package br.com.SorrisoMaterno.sorrisoapi.controller;
 
-import java.util.ArrayList;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import br.com.SorrisoMaterno.sorrisoapi.model.Consulta;
+import br.com.SorrisoMaterno.sorrisoapi.model.ConsultasDAO;
 
 @RestController
 public class ConsultaController {
 
-    @GetMapping("/api/consulta")
-    public ArrayList<Consulta> listarConsulta(){
-        Consulta consulta = new Consulta();
-        consulta.setHorario("12:00");
-        consulta.setData("10/09/2023");
-       
+    /**
+     * Para carregar o repository no DAO, é necessário carregar aquio DAO com @Autowired.
+     * Assim o Spring conseguirá carregar automaticamente o Repository dentro do DAO.
+     * Caso contrário, o repository será null dentro do DAO
+     */
+    @Autowired
+    ConsultasDAO consultasDAO;
+    @GetMapping("/api/consulta/{data}")
+    public Consulta recuperaConsulta(@PathVariable String data){
+        Consulta consulta = consultasDAO.recuperarConsulta(data);
     
-        Consulta consulta1 = new Consulta();
-        consulta1.setHorario("9:00");
-        consulta1.setData("11/12/2023");
-        
-    
-    
-    
-        Consulta consulta2 = new Consulta();
-        consulta2.setHorario("15:00");
-        consulta2.setData("26/06/2021");
-        
-   
-    ArrayList<Consulta> lista = new ArrayList<>();
-    lista.add(consulta);
-    lista.add(consulta1);
-    lista.add(consulta2);
-    return lista;
 
-  }
+    if(true)
+        throw new ResponseStatusException(
+            HttpStatus.NOT_FOUND, "Consulta não encontrada"
+        );
+
+        return null;
+    }
+
+
 }
-    

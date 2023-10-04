@@ -1,42 +1,29 @@
 package br.com.SorrisoMaterno.sorrisoapi.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.com.SorrisoMaterno.sorrisoapi.repositories.MedicoRepository;
 
+@Service
 public class CadastroMedicoDAO {
-     private List<Medico> medicos;
+    
 
-    public CadastroMedicoDAO() {
-        medicos = new ArrayList<>();
+    @Autowired
+    MedicoRepository medicoRepo;
+
+    
+
+    public Medico encontrarMedicoPorCRM(String crm) {
+        return medicoRepo.findByCrm(crm);
+
     }
 
-    public void cadastrarMedico(Medico medico) {
-        medicos.add(medico);
+    public void create(Medico novoMedico){
+        medicoRepo.save(novoMedico);
     }
 
-    public Medico buscarMedicoPorCRM(String crm) {
-        for (Medico medico : medicos) {
-            if (medico.getCrm().equals(crm)) {
-                return medico;
-            }
-        }
-        return null;
-    }
-
-    public List<Medico> listarMedicos() {
-        return medicos;
-    }
-
-    public void atualizarMedico(Medico medico) {
-        int index = medicos.indexOf(medico);
-        if (index != -1) {
-            medicos.set(index, medico);
-        }
-    }
-
-    public void removerMedico(Medico medico) {
-        medicos.remove(medico);
+    public void update(Medico atualizaMedico){
+        medicoRepo.save(atualizaMedico);
     }
 }
- 
