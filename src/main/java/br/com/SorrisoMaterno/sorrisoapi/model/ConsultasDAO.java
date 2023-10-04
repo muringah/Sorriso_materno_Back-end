@@ -1,4 +1,6 @@
 
+
+
 package br.com.SorrisoMaterno.sorrisoapi.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,4 +52,9 @@ public class ConsultasDAO {
     public void update(Consulta atualizarConsulta) {
         consultaRepo.save(atualizarConsulta);
     }
+
+    public Consulta recuperarConsulta(String data){
+        return consultaRepo.findByData(data);
+    }
 }
+

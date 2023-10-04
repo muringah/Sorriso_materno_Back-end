@@ -1,3 +1,4 @@
+
 package br.com.SorrisoMaterno.sorrisoapi.model;
 
 import java.util.ArrayList;
@@ -23,4 +24,14 @@ public class CadastroMedicoDAO {
         return medicoRepo.findByCrm(crm);
 
     }
+
+
+    public void create(Medico novoMedico){
+        medicoRepo.save(novoMedico);
+    }
+
+    public void update(Medico atualizaMedico){
+        medicoRepo.save(atualizaMedico);
+    }
+
 }

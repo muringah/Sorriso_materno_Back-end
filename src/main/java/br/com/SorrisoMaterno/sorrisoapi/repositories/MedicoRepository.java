@@ -1,3 +1,5 @@
+
+
 package br.com.SorrisoMaterno.sorrisoapi.repositories;
 
 import org.springframework.data.repository.CrudRepository;
@@ -8,3 +10,4 @@ public interface MedicoRepository extends CrudRepository<Medico, Long>{
 
     Medico findByCrm(String crm);
 }
+
