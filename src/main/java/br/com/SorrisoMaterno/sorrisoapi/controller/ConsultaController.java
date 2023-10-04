@@ -1,36 +1,51 @@
 package br.com.SorrisoMaterno.sorrisoapi.controller;
 
-import java.util.ArrayList;
-
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.SorrisoMaterno.sorrisoapi.model.Consulta;
+import br.com.SorrisoMaterno.sorrisoapi.model.ConsultasDAO;
 
 @RestController
 public class ConsultaController {
 
-    @GetMapping("/api/consulta")
-    public ArrayList<Consulta> listarConsulta() {
-        Consulta consulta = new Consulta();
-        consulta.setHorario("12:00");
-        consulta.setData("10/09/2023");
+    /**
+     * Para carregar o repository no DAO, é necessário carregar aquio DAO com @Autowired.
+     * Assim o Spring conseguirá carregar automaticamente o Repository dentro do DAO.
+     * Caso contrário, o repository será null dentro do DAO
+     */
+    @Autowired
+    ConsultasDAO consultasDAO;
 
-        Consulta consulta1 = new Consulta();
-        consulta1.setHorario("9:00");
-        consulta1.setData("11/12/2023");
 
-        Consulta consulta2 = new Consulta();
-        consulta2.setHorario("15:00");
-        consulta2.setData("26/06/2021");
 
-        ArrayList<Consulta> lista = new ArrayList<>();
-        lista.add(consulta);
-        lista.add(consulta1);
-        lista.add(consulta2);
-        return lista;
+   @PostMapping("/api/consulta/agendamento")
+    public boolean criaCadastroMedico(@RequestBody Consulta novaConsulta) {
+        System.out.println("Nova consulta agendada" + novaConsulta.getData());
+        {
+            if (novaConsulta.getData() != null) {
+                //ConsultaDAO.getInstace.
+                consultasDAO.create(novaConsulta);
+                return true;
 
+            }
+
+            return false;
+        }
     }
 
+    @PutMapping("/api/consulta/atualizaConsulta")
+    public Consulta endPoint(@RequestBody Consulta atualizaConsulta) {
+        System.out.println("Consulta atualizada" + atualizaConsulta.getData());
+        {
+            if (atualizaConsulta.getData() != null){
+                consultasDAO.update(atualizaConsulta);
+            }
+        return atualizaConsulta;
+    }
+    }
 }
+
