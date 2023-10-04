@@ -1,4 +1,4 @@
-package br.com.SorrisoMaterno.sorrisoapi;
+package br.com.SorrisoMaterno;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

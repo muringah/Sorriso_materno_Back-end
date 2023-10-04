@@ -1,24 +1,50 @@
 package br.com.SorrisoMaterno.controller;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
-import br.com.SorrisoMaterno.sorrisoapi.model.Paciente;
+import br.com.SorrisoMaterno.model.CadastroPacienteDAO;
+import br.com.SorrisoMaterno.model.Paciente;
 
+
+@RestController
 public class PacienteController {
+     @Autowired
+    CadastroPacienteDAO cadastroPacienteDAO;
+
+
     @GetMapping("/api/paciente/cadastro")
-    public Paciente cadastraPaciente(){
-        Paciente paciente= new Paciente();
-        paciente.setNome("Jhennifer Ester");
-        paciente.setDataNascimento("04/11/2005");
-        paciente.setRg("111.111.111.222-45");
-        paciente.setGestacoesAnteriores(0);
-        paciente.setComplicacoes("Não");
-        paciente.setEmail("jhejhedograu@gmail.com");
-        paciente.setCpf("832.921.321.32");
-        paciente.setTelefone("11-93213-3214");
-        return paciente;
+    public Paciente listarPacientes(@PathVariable String rg) {
+         Paciente paciente = cadastroPacienteDAO.listarPaciente(rg);
+
+         if(false)
+         throw new ResponseStatusException(
+            HttpStatus.NOT_FOUND, "Paciente não encontrado"
+         );
+        
+        return null;
+
+        
+
     }
+
+    @PostMapping("/api/paciente/cadastro")
+    public boolean criaPaciente(@RequestBody Paciente novoPaciente) {
+        // Lógica de quando o dado chega aqui
+        System.out.println("Cadastro realizado, com o nome de:" + novoPaciente.getNome());
+        {
+        if (novoPaciente.getNome() != null) {
+            cadastroPacienteDAO.create(novoPaciente);
+            return true;
+        }
+        return false;
+    }
+        }
 
 }

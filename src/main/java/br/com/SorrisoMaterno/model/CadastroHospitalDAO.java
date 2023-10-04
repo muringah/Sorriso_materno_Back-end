@@ -1,4 +1,4 @@
-package br.com.SorrisoMaterno.sorrisoapi.model;
+package br.com.SorrisoMaterno.model;
 
 import java.util.ArrayList;
 import java.util.List;
