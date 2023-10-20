@@ -1,4 +1,4 @@
-
+ 
 package br.com.SorrisoMaterno.model;
 
 import jakarta.persistence.Entity;

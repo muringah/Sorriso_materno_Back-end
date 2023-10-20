@@ -19,6 +19,8 @@ import br.com.SorrisoMaterno.model.Medico;
 public class MedicoController {
 
 
+
+
      @Autowired
     CadastroMedicoDAO medicoDAO;   
     CadastroMedicoDAO cadastroMedicoDao;
@@ -35,6 +37,7 @@ public class MedicoController {
             return false;
         }
     }
+    
 
     
     @PutMapping("/api/medico/cadastro")
@@ -68,15 +71,15 @@ public class MedicoController {
     
 
     @DeleteMapping("/api/medico/remover/{crm}")
-    public String endPoint5(@PathVariable("crm") Long crm) {
-        if (crm == 123456)
+    public String endPoint5(@PathVariable String crm) {
+        if (crm == "1234"){
+            Medico medico = medicoDAO.delete(crm);
             return "Remoção de informação com crm: " + crm + " realizada";
-        else {
-            return "O crm: " + crm + "não foi encontrado";
- 
+        }
+        return(null);
    
 }
 
     }
 
-}
+

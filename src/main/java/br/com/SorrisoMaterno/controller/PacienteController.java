@@ -1,23 +1,4 @@
-<<<<<<< HEAD:src/main/java/br/com/SorrisoMaterno/sorrisoapi/controller/PacienteController.java
 
-package br.com.SorrisoMaterno.sorrisoapi.controller;
-
-import java.util.ArrayList;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import br.com.SorrisoMaterno.sorrisoapi.model.Paciente;
-
-@RestController
-public class PacienteController {
-    
-}
-=======
 package br.com.SorrisoMaterno.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,33 +20,34 @@ public class PacienteController {
     CadastroPacienteDAO cadastroPacienteDAO;
 
 
-    @GetMapping("/api/paciente/cadastro")
-    public Paciente listarPacientes(@PathVariable String rg) {
-         Paciente paciente = cadastroPacienteDAO.listarPaciente(rg);
+    @GetMapping("/api/consulta/{data}")
+    public Paciente listarPacientes(@PathVariable String rg){
+        Paciente paciente = cadastroPacienteDAO.recuperarPaciente(rg);
+    
 
-         if(false)
-         throw new ResponseStatusException(
+
+    if(true)
+        throw new ResponseStatusException(
             HttpStatus.NOT_FOUND, "Paciente não encontrado"
-         );
-        
+        );
+
         return null;
-
-        
-
     }
+
 
     @PostMapping("/api/paciente/cadastro")
-    public boolean criaPaciente(@RequestBody Paciente novoPaciente) {
-        // Lógica de quando o dado chega aqui
+    public boolean criaCadastroPaciente(@RequestBody Paciente novoPaciente){
         System.out.println("Cadastro realizado, com o nome de:" + novoPaciente.getNome());
         {
-        if (novoPaciente.getNome() != null) {
-            cadastroPacienteDAO.create(novoPaciente);
-            return true;
+            if (novoPaciente.getNome() != null) {
+                cadastroPacienteDAO.create(novoPaciente);
+                return true;
+            }
+            return false;
         }
-        return false;
     }
-        }
+    
+
 
 }
->>>>>>> jhennifer_dev:src/main/java/br/com/SorrisoMaterno/controller/PacienteController.java
+ 

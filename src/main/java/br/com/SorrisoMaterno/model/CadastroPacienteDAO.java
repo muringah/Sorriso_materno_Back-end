@@ -18,6 +18,8 @@ public class CadastroPacienteDAO {
     //  pacientes = new ArrayList<>();
     //}
 
+
+
     //public void cadastrarPaciente(Paciente paciente) {
     //    pacientes.add(paciente);
     //}
@@ -36,7 +38,7 @@ public class CadastroPacienteDAO {
         pacienteRepository.save(novoPaciente);
     }
 
-    public Paciente listarPaciente(String rg){
+    public Paciente recuperarPaciente(String rg){
         return pacienteRepository.findByRg(rg);
     }
 }

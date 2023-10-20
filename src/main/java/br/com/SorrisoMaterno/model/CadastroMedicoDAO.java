@@ -14,6 +14,8 @@ public class CadastroMedicoDAO {
     @Autowired
     MedicoRepository medicoRepo;
 
+
+
     // public CadastroMedicoDAO() {
     //     medicos = new ArrayList<>();
     // }
@@ -40,16 +42,12 @@ public class CadastroMedicoDAO {
         // medicoRepo.count(listaMedico);
     }
 
-    public void atualizarMedico(Medico medico) {
-        // int index = medicos.indexOf(medico);
-        // if (index != -1) {
-        //     medicos.set(index, medico);
-        // }
+   
+
+    public Medico delete(String crm) {
+        return medicoRepo.deleteByCrm(crm);
     }
 
-    public void delete(Long id) {
-        medicoRepo.deleteById(id);
-    }
 
     public Medico encontrarMedicoPorCRM(String crm) {
         return medicoRepo.findByCrm(crm);

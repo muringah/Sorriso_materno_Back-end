@@ -56,7 +56,7 @@ public class ConsultaController {
         }
     }
 
-    @PutMapping("/api/consulta/atualizaConsulta")
+    @PutMapping("/api/consulta/atualizar")
     public Consulta endPoint(@RequestBody Consulta atualizaConsulta) {
         System.out.println("Consulta atualizada" + atualizaConsulta.getData());
         {
