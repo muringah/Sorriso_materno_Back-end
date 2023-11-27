@@ -7,11 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Paciente {
+public class Paciente extends Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; 
+    // // @Id
+    // // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // private long id; 
     private String nome;
     private String telefone;
     private String complicacoes;
@@ -24,7 +24,8 @@ public class Paciente {
     
     
     public Paciente(String nome, String telefone, String complicacoes, int gestacoesAnteriores, String email,
-            String dataNascimento, String rg, String cpf) {
+            String dataNascimento, String rg, String cpf, String username, String password) {
+        super(username, password);
         this.nome = nome;
         this.telefone = telefone;
         this.complicacoes = complicacoes;
@@ -36,7 +37,8 @@ public class Paciente {
     }
 
 
-    public Paciente() {
+    public Paciente(){
+        super();
     }
 
 

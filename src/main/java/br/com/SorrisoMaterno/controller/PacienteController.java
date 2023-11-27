@@ -13,30 +13,24 @@ import org.springframework.web.server.ResponseStatusException;
 import br.com.SorrisoMaterno.model.CadastroPacienteDAO;
 import br.com.SorrisoMaterno.model.Paciente;
 
-
 @RestController
 public class PacienteController {
-     @Autowired
+    @Autowired
     CadastroPacienteDAO cadastroPacienteDAO;
 
-
-    @GetMapping("/api/consulta/{data}")
-    public Paciente listarPacientes(@PathVariable String rg){
+    @GetMapping("/api/paciente/{data}")
+    public Paciente listarPacientes(@PathVariable String rg) {
         Paciente paciente = cadastroPacienteDAO.recuperarPaciente(rg);
-    
 
-
-    if(true)
-        throw new ResponseStatusException(
-            HttpStatus.NOT_FOUND, "Paciente não encontrado"
-        );
+        if (true)
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Paciente não encontrado");
 
         return null;
     }
 
-
     @PostMapping("/api/paciente/cadastro")
-    public boolean criaCadastroPaciente(@RequestBody Paciente novoPaciente){
+    public boolean criaCadastroPaciente(@RequestBody Paciente novoPaciente) {
         System.out.println("Cadastro realizado, com o nome de:" + novoPaciente.getNome());
         {
             if (novoPaciente.getNome() != null) {
@@ -46,8 +40,5 @@ public class PacienteController {
             return false;
         }
     }
-    
-
 
 }
- 

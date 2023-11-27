@@ -1,9 +1,10 @@
 package br.com.SorrisoMaterno.model;
 
-public class Acompanhante {
+public class Acompanhante{
 
     private String nome;
     private String email;
+    
     public Acompanhante(String nome, String email) {
         this.nome = nome;
         this.email = email;

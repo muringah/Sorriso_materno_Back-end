@@ -11,7 +11,7 @@ public class DataBasePaciente {
 
     public void init() {
         paciente.add(new Paciente("Jhennifer", "04/05/2005", "111.111.111.11", 0, "jhejhedograu@gmail.com", "Não",
-                "111.222.213-45", "11 93210-2134"));
+                "111.222.213-45", "11 93210-2134", null, null));
     }
 
     public void addDado(Paciente novo) {
